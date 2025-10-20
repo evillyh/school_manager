@@ -6,7 +6,7 @@
 
 ## 🔗 Links rápidos
 
-* **README geral (voltar)**: `../../README.md`
+* **README geral (voltar)**: [`../../README.md`](../../README.md)
 * **PM / Gerente de Projeto** → `guias/gerente-de-projeto.md`
 * **Front‑end (React)** → `guias/front-end.md`
 * **Back‑end (Node + Express)** → `guias/back-end.md`
