@@ -98,20 +98,15 @@ Este README será atualizado conforme o desenvolvimento do projeto avança.
 
 🧩 ETAPAS INICIAIS DO GRUPO BACK-END
 🥇 1. Planejar
-
 Antes de programar, o grupo precisa entender o que vai ser feito:
-
 O sistema é tipo Net Escola, então precisa ter:
-
 Login de aluno e professor
-
 Cadastro de notas e frequência (professor)
-
 Consulta de boletim, matrícula e perfil (aluno)
-
 Anotem quais dados serão necessários: alunos, professores, turmas, disciplinas, notas, frequência etc.
-
 Combinar com o grupo do banco de dados: quais tabelas eles vão criar.
+
+
 
 📝 Dica: façam um mini “mapa” com as rotas que vocês vão precisar:
 
@@ -120,11 +115,14 @@ Login	POST	/api/login	Aluno/Professor
 Ver perfil	GET	/api/usuario/:id	Todos
 Lançar notas	POST	/api/notas	Professor
 Ver boletim	GET	/api/notas/:alunoId	Aluno
+
+
+
 🥈 2. Criar o Repositório
-
 Um integrante cria um repositório no GitHub chamado por exemplo backend-net-escola
-
 Compartilha o link com os outros (adiciona como colaboradores)
+
+
 
 🥉 3. Criar o Projeto Node.js
 
@@ -133,6 +131,9 @@ Dentro da pasta do projeto (no computador de vocês):
 mkdir backend-net-escola
 cd backend-net-escola
 npm init -y
+
+
+
 
 
 Isso cria o package.json, que define o projeto Node.
@@ -164,9 +165,11 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
 
 
-Agora, testem:
 
-npm run dev
+
+
+Agora, testem:
+"npm run dev"
 
 
 👉 (mas antes, adicionem o script no package.json):
@@ -181,19 +184,15 @@ Se aparecer “Servidor rodando na porta 3000”, deu certo ✅
 🗄️ 6. Integrar com o Banco
 
 Quando o grupo do banco de dados terminar o modelo (tabelas e colunas), vocês configuram o Sequelize para conectar.
-
 Criem os models (Aluno, Professor, Nota, Frequencia...).
 
 🔐 7. Criar o Sistema de Login
-
 Criar rota /api/login
-
 Usar bcryptjs para senhas e jsonwebtoken (JWT) para autenticação.
 
 🧪 8. Testar com Postman
 
 Usem o Postman ou Insomnia para testar as rotas.
-
 Cada vez que criarem uma rota nova, testem se está salvando e retornando dados corretamente.
 
 📘 9. Escrever o README (no GitHub)
@@ -201,15 +200,10 @@ Cada vez que criarem uma rota nova, testem se está salvando e retornando dados 
 Quando tiverem o planejamento pronto, façam o README explicando:
 
 O que o back-end faz
-
 Como rodar
-
 Quais tecnologias usa
-
 Quem faz parte do grupo
-
 (Posso te ajudar a montar esse README depois que o grupo definir os nomes e a linguagem usada)
 
 🧩 10. Conectar com o Front-End
-
 Quando o grupo do Front-End tiver pronto o site/aplicativo, eles vão consumir as rotas criadas por vocês (por exemplo: /api/notas, /api/login etc.)
