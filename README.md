@@ -72,11 +72,11 @@ Nosso grupo será responsável por:
 
 | Nome | Função | GitHub |
 |------|--------|--------|
-| Gabriel F| Desenvolvedor Back-End | [@usuario1](https://github.com/usuario1) |
-| Ryan P   | Líder  Back-End | [@usuario2](https://github.com/usuario2) |
-| Marcos V  | Desenvolvedor Back-End | [@usuario3](https://github.com/usuario3) |
-| João V  | Desenvolvedor Back-End | [@usuario3](https://github.com/usuario3) |
-| Victtor  | Desenvolvedor Back-End | [@usuario3](https://github.com/usuario3) |
+| Gabriel F| Desenvolvedor Back-End | [@usuario1](https://github.com/) |
+| Ryan P   | Líder  Back-End | [@RyanPDMatos](https://github.com/RyanPDMatos) |
+| Marcos V  | Desenvolvedor Back-End | [@64saraiva](https://github.com/64Saraiva) |
+| João V  | Desenvolvedor Back-End | [@galocego1707](https://github.com/galocego1707) |
+| Victtor  | Desenvolvedor Back-End | [@victtorsousa064](https://github.com/victtorsousa064) |
 
 ---
 
