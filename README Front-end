@@ -1,0 +1,68 @@
+# 🎨 Projeto Integrador – Front-End
+
+## 🏫 Descrição do Projeto
+
+Este repositório contém o **Front-End** do projeto **Sistema Escolar**, uma aplicação inspirada no **Net Escola**.  
+O sistema permite que **professores** lancem notas e frequência e que **alunos** visualizem informações como:
+- Notas e boletim  
+- Frequência  
+- Perfil e matrícula  
+
+O projeto foi dividido em três partes:
+- 🧠 **Back-End:** criação da API e regras de negócio  
+- 🎨 **Front-End (nosso grupo):** desenvolvimento da interface  
+- 🗄️ **Banco de Dados:** modelagem e estrutura do banco  
+
+---
+
+## ⚙️ Responsabilidades do Grupo Front-End
+
+Nosso grupo é responsável por:
+- Criar a **interface do site/aplicativo**  
+- Conectar o Front-End com a **API do Back-End**  
+- Desenvolver as telas:
+  - Login e cadastro  
+  - Página do aluno (notas, boletim, perfil)  
+  - Página do professor (lançamento de notas e frequência)  
+  - Página inicial e navegação  
+- Garantir que o layout seja **intuitivo, responsivo e funcional**
+
+---
+
+## 🧰 Tecnologias que serão utilizadas
+
+- **HTML5**, **CSS3**, **JavaScript**  
+- **React.js** (ou outro framework, se vocês forem usar)  
+- **Axios** (para consumir a API do Back-End)  
+- **Bootstrap** / **TailwindCSS** (para estilização, se desejarem)  
+- **Vite** ou **Create React App** (para iniciar o projeto)
+
+---
+
+## 🚀 Etapas do Desenvolvimento
+
+1. **Planejamento da Interface**
+   - Criação dos protótipos das telas (no Figma ou papel)
+   - Definição do fluxo de navegação
+
+2. **Criação do Projeto**
+   - Inicializar projeto com React/Vite
+   - Estruturar pastas (`components`, `pages`, `services`, etc.)
+
+3. **Desenvolvimento das Telas**
+   - Página de Login  
+   - Página do Aluno (Notas, Perfil, Frequência)  
+   - Página do Professor (Lançar Notas e Frequência)
+
+4. **Integração com o Back-End**
+   - Fazer requisições com **Axios** para os endpoints da API  
+   - Exibir dados reais (notas, frequência, etc.)
+
+5. **Estilização**
+   - Aplicar cores e fontes definidas pelo grupo  
+   - Garantir que funcione bem em celular e computador
+
+---
+
+## 🧩 Estrutura do Projeto
+
