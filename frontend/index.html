@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escola do Futuro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: url('FUNDO2.PNG') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 150px;
+        }
+        
+        .logo img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .login-container, .signup-container, .news-container {
+            background: transparent;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .signup-container, .news-container {
+            display: none;
+        }
+        
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #388E3C;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #2E7D32;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+        
+        .create-account {
+            color: #2196F3;
+            cursor: pointer;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        
+        .back-to-login, .back-to-news {
+            color: #2196F3;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 15px;
+            display: block;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Estilos para a tela de notícias */
+        .news-content {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            width: 100%;
+            max-width: 800px;
+            margin-top: 80px;
+        }
+
+        .news-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .news-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .news-item strong {
+            color: #2c3e50;
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .news-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #3498db, transparent);
+            margin: 20px 0;
+        }
+
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .logout-btn:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo no canto -->
+    <div class="logo">
+        <img src="LOGO.PNG" alt="Escola do Futuro">
+    </div>
+
+    <!-- Botão de logout (só aparece após login) -->
+    <button class="logout-btn" id="logoutBtn" style="display: none;" onclick="showLogin()">SAIR</button>
+    
+    <!-- Tela de Login -->
+    <div class="container">
+        <div class="login-container" id="loginScreen">
+            <h1 class="title">ESCOLA DO FUTURO</h1>
+            
+            <div class="input-group">
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" placeholder="">
+            </div>
+            
+            <div class="input-group">
+                <label for="password">SENHA</label>
+                <input type="password" id="password" placeholder="">
+            </div>
+            
+            <button id="loginBtn">LOGAR</button>
+            
+            <div class="footer">
+                NÃO TEM CONTA ? <span class="create-account" id="createAccountLink">CRIAR CONTA</span>
+            </div>
+        </div>
+        
+        <!-- Tela de Criação de Conta -->
+        <div class="signup-container" id="signupScreen">
+            <h1 class="title">CRIAR CONTA</h1>
+            
+            <div class="input-group">
+                <label for="name">NOME</label>
+                <input type="text" id="name" placeholder="">
+            </div>
+            
+            <div class="input-group">
+                <label for="newCpf">CPF</label>
+                <input type="text" id="newCpf" placeholder="">
+            </div>
+            
+            <div class="input-group">
+                <label for="newPassword">CRIE SUA SENHA</label>
+                <input type="password" id="newPassword" placeholder="">
+            </div>
+            
+            <button id="createAccountBtn">CRIAR CONTA</button>
+            
+            <span class="back-to-login" id="backToLogin">Voltar para o login</span>
+        </div>
+        
+        <!-- Tela de Notícias -->
+        <div class="news-container" id="newsScreen">
+            <div class="news-content">
+                <h1 class="news-title">Notícias em Destaque</h1>
+                
+                <div class="news-item">
+                    <strong>Autora das Escolas do Futuro podem receber até 400 reais com nova bolsa, condicionalizante</strong>
+                </div>
+                
+                <div class="news-divider"></div>
+                
+                <div class="news-item">
+                    <strong>FES em Artes Basileu Franca porteia computadores para estudantes da unidade</strong>
+                </div>
+                
+                <div class="news-divider"></div>
+                
+                <div class="news-item">
+                    <strong>Atenção: golpistas estão usando o nome das Escolas do Futuro de Goiás</strong>
+                </div>
+                
+                <div class="news-divider"></div>
+                
+                <div class="news-item">
+                    <strong>Prorrogação e prazo para inscrição no Edital de Reconhecimento Docente</strong>
+                </div>
+
+                <span class="back-to-news" onclick="showLogin()" style="margin-top: 30px;">Fazer Logout</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Elementos da tela
+        const loginScreen = document.getElementById('loginScreen');
+        const signupScreen = document.getElementById('signupScreen');
+        const newsScreen = document.getElementById('newsScreen');
+        const createAccountLink = document.getElementById('createAccountLink');
+        const backToLogin = document.getElementById('backToLogin');
+        const loginBtn = document.getElementById('loginBtn');
+        const createAccountBtn = document.getElementById('createAccountBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        
+        // Iniciar com a tela de login
+        showLogin();
+        
+        // Mostrar tela de login
+        function showLogin() {
+            loginScreen.style.display = 'flex';
+            signupScreen.style.display = 'none';
+            newsScreen.style.display = 'none';
+            logoutBtn.style.display = 'none';
+            document.querySelector('.container').style.display = 'flex';
+        }
+        
+        // Mostrar tela de notícias (após login)
+        function showNews() {
+            loginScreen.style.display = 'none';
+            signupScreen.style.display = 'none';
+            newsScreen.style.display = 'flex';
+            logoutBtn.style.display = 'block';
+            document.querySelector('.container').style.display = 'block';
+        }
+        
+        // Alternar entre telas de login/cadastro
+        createAccountLink.addEventListener('click', function() {
+            loginScreen.style.display = 'none';
+            signupScreen.style.display = 'flex';
+        });
+        
+        backToLogin.addEventListener('click', function() {
+            signupScreen.style.display = 'none';
+            loginScreen.style.display = 'flex';
+        });
+        
+        // Simular login
+        loginBtn.addEventListener('click', function() {
+            const cpf = document.getElementById('cpf').value;
+            const password = document.getElementById('password').value;
+            
+            if (cpf && password) {
+                // Login bem-sucedido - mostrar notícias
+                showNews();
+            } else {
+                alert('Por favor, preencha todos os campos!');
+            }
+        });
+        
+        // Simular criação de conta
+        createAccountBtn.addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const newCpf = document.getElementById('newCpf').value;
+            const newPassword = document.getElementById('newPassword').value;
+            
+            if (name && newCpf && newPassword) {
+                alert('Conta criada com sucesso!');
+                // Voltar para o login após criar conta
+                showLogin();
+            } else {
+                alert('Por favor, preencha todos os campos!');
+            }
+        });
+    </script>
+</body>
+</html>
