@@ -72,7 +72,7 @@ Nosso grupo será responsável por:
 
 | Nome | Função | GitHub |
 |------|--------|--------|
-| Gabriel F| Desenvolvedor Back-End | [@usuario1](https://github.com/) |
+| Gabriel F| Desenvolvedor Back-End | [@Gabriel](https://github.com/Gabriel) |
 | Ryan P   | Líder  Back-End | [@RyanPDMatos](https://github.com/RyanPDMatos) |
 | Marcos V  | Desenvolvedor Back-End | [@64saraiva](https://github.com/64Saraiva) |
 | João V  | Desenvolvedor Back-End | [@galocego1707](https://github.com/galocego1707) |
