@@ -74,7 +74,7 @@ Nosso grupo será responsável por:
 |------|--------|--------|
 | Gabriel F| Desenvolvedor Back-End | [@Gabriel](https://github.com/Gabriel) |
 | Ryan P   | Líder  Back-End | [@RyanPDMatos](https://github.com/RyanPDMatos) |
-| Marcos V  | Desenvolvedor Back-End | [@64saraiva](https://github.com/64Saraiva) |
+| Marcos V  | Vice Líder Back-End | [@64saraiva](https://github.com/64Saraiva) |
 | João V  | Desenvolvedor Back-End | [@galocego1707](https://github.com/galocego1707) |
 | Victtor  | Desenvolvedor Back-End | [@victtorsousa064](https://github.com/victtorsousa064) |
 
