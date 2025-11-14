@@ -4,278 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escola do Futuro</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-        
-        body {
-            background: url('FUNDO.PNG') no-repeat center center fixed;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 400px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .logo {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 150px;
-            background: white;
-            border-radius: 10px;
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .logo img {
-            width: 100%;
-            height: auto;
-        }
-        
-        .login-container, .signup-container, .news-container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 30px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-        
-        .signup-container, .news-container {
-            display: none;
-        }
-        
-        .title {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #333;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        
-        .input-group {
-            margin-bottom: 20px;
-            width: 100%;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: bold;
-            font-size: 16px;
-        }
-        
-        input {
-            width: 100%;
-            padding: 15px;
-            border: 2px solid #ddd;
-            border-radius: 25px;
-            font-size: 16px;
-            background: rgba(255, 255, 255, 0.9);
-            transition: border-color 0.3s;
-        }
-        
-        input:focus {
-            border-color: #388E3C;
-            outline: none;
-        }
-        
-        button {
-            width: 100%;
-            padding: 15px;
-            background-color: #388E3C;
-            color: white;
-            border: none;
-            border-radius: 25px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 10px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        
-        button:hover {
-            background-color: #2E7D32;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #333;
-            font-weight: bold;
-        }
-        
-        .create-account {
-            color: #2196F3;
-            cursor: pointer;
-            text-decoration: underline;
-            font-weight: bold;
-        }
-        
-        .back-to-login, .back-to-news {
-            color: #2196F3;
-            cursor: pointer;
-            text-decoration: underline;
-            margin-top: 15px;
-            display: block;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        /* Estilos para a tela de notícias */
-        .news-content {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 30px;
-            width: 100%;
-            max-width: 800px;
-            margin-top: 80px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        .news-title {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #333;
-            font-size: 28px;
-            font-weight: bold;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #ecf0f1;
-        }
-
-        .news-item {
-            margin-bottom: 30px;
-            padding-bottom: 25px;
-            border-bottom: 2px solid #ecf0f1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .news-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .news-image {
-            width: 100%;
-            height: 180px;
-            border-radius: 10px;
-            object-fit: cover;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .news-item strong {
-            color: #2c3e50;
-            font-size: 18px;
-            display: block;
-            margin-bottom: 10px;
-            line-height: 1.4;
-        }
-
-        .news-date {
-            color: #7f8c8d;
-            font-size: 14px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .news-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #3498db, transparent);
-            margin: 20px 0;
-        }
-
-        /* Menu de navegação */
-        .nav-menu {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: none;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 10px;
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .nav-menu ul {
-            display: flex;
-            list-style: none;
-            gap: 15px;
-        }
-
-        .nav-menu li {
-            padding: 8px 15px;
-            border-radius: 20px;
-            background: #388E3C;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .nav-menu li:hover {
-            background: #2E7D32;
-        }
-
-        .logout-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #e74c3c;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            display: none;
-        }
-
-        .logout-btn:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .news-content {
-                padding: 20px;
-                margin-top: 100px;
-            }
-            
-            .logo {
-                width: 120px;
-            }
-            
-            .nav-menu ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Logo no canto -->
@@ -286,10 +15,10 @@
     <!-- Menu de navegação (só aparece após login) -->
     <nav class="nav-menu" id="navMenu">
         <ul>
-            <li>início</li>
-            <li>serviços</li>
-            <li>informações</li>
-            <li>conta</li>
+            <li onclick="showNews()">Início</li>
+            <li onclick="showServices()" class="active">Serviços</li>
+            <li>Informações</li>
+            <li>Conta</li>
         </ul>
     </nav>
 
@@ -347,124 +76,78 @@
             <div class="news-content">
                 <h1 class="news-title">Notícias em Destaque</h1>
                 
-                <div class="news-item">
-                    <img src="BOLSA.png" alt="Bolsa Profissionalizante" class="news-image">
-                    <strong>Alunos das Escolas do Futuro podem receber até 400 reais com nova bolsa profissionalizante</strong>
+                <div class="news-grid">
+                    <div class="news-item">
+                        <img src="BOLSA.png" alt="Bolsa Profissionalizante" class="news-image">
+                        <div class="news-date">15 DE JANEIRO DE 2025</div>
+                        <strong>Alunos das Escolas do Futuro podem receber até 400 reais com nova bolsa profissionalizante</strong>
+                        <a href="#" class="saiba-mais">Saiba mais →</a>
+                    </div>
+                    
+                    <div class="news-item">
+                        <img src="DISTANCIA.png" alt="Sorteio de Computadores" class="news-image">
+                        <div class="news-date">10 DE JANEIRO DE 2025</div>
+                        <strong>EFG em Artes Basileu França sorteia computadores para estudantes da unidade</strong>
+                        <a href="#" class="saiba-mais">Saiba mais →</a>
+                    </div>
+                    
+                    <div class="news-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMTgwIj48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0U3NEMzQyIvPjx0ZXh0IHg9IjIwMCIgeT0iOTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkFsZXJ0YSBkZSBHb2xwaXN0YXM8L3RleHQ+PC9zdmc+" alt="Alerta de Golpistas" class="news-image">
+                        <div class="news-date">27 DE MAIO DE 2025</div>
+                        <strong>Atenção: golpistas estão usando o nome das Escolas do Futuro de Goiás</strong>
+                        <a href="#" class="saiba-mais">Saiba mais →</a>
+                    </div>
+                    
+                    <div class="news-item">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMTgwIj48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0ZGQTUxQyIvPjx0ZXh0IHg9IjIwMCIgeT0iOTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlByb3Jyb2dhw6fDo28gZGUgRWRpdGFsPC90ZXh0Pjwvc3ZnPg==" alt="Prorrogação de Edital" class="news-image">
+                        <div class="news-date">05 DE JANEIRO DE 2025</div>
+                        <strong>Prorrogado o prazo para inscrição no Edital de Reconhecimento Docente</strong>
+                        <a href="#" class="saiba-mais">Saiba mais →</a>
+                    </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Tela de Serviços -->
+        <div class="services-container" id="servicesScreen">
+            <div class="services-content">
+                <h1 class="services-title">ESCOLA DO FUTURO</h1>
                 
-                <div class="news-divider"></div>
-                
-                <div class="news-item">
-                    <img src="DISTANCIA.png" alt="Sorteio de Computadores" class="news-image">
-                    <strong>EF6 em Artes Basileu França sorteia computadores para estudantes da unidade</strong>
-                </div>
-                
-                <div class="news-divider"></div>
-                
-                <div class="news-item">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMTgwIj48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0U3NEMzQyIvPjx0ZXh0IHg9IjIwMCIgeT0iOTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkFsZXJ0YSBkZSBHb2xwaXN0YXM8L3RleHQ+PC9zdmc+" alt="Alerta de Golpistas" class="news-image">
-                    <div class="news-date">27 DE MAIO DE 2025</div>
-                    <strong>Atenção: golpistas estão usando o nome das Escolas do Futuro de Goiás</strong>
-                </div>
-                
-                <div class="news-divider"></div>
-                
-                <div class="news-item">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMTgwIj48cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE4MCIgZmlsbD0iI0ZGQTUxQyIvPjx0ZXh0IHg9IjIwMCIgeT0iOTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPlByb3Jyb2dhw6fDo28gZGUgRWRpdGFsPC90ZXh0Pjwvc3ZnPg==" alt="Prorrogação de Edital" class="news-image">
-                    <strong>Prorrogado o prazo para inscrição no Edital de Reconhecimento Docente</strong>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-icon">C</div>
+                        <strong>CURSOS</strong>
+                        <div class="service-description">Acesse todos os cursos disponíveis e gerencie sua formação</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">B</div>
+                        <strong>BOLETIM ESCOLAR</strong>
+                        <div class="service-description">Consulte suas notas e desempenho acadêmico</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">H</div>
+                        <strong>HORÁRIO</strong>
+                        <div class="service-description">Confira seu horário de aulas e atividades</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">F</div>
+                        <strong>FREQUÊNCIA</strong>
+                        <div class="service-description">Acompanhe sua frequência e presença nas aulas</div>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">C</div>
+                        <strong>CALENDÁRIO</strong>
+                        <div class="service-description">Veja as datas importantes e eventos escolares</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        // Elementos da tela
-        const loginScreen = document.getElementById('loginScreen');
-        const signupScreen = document.getElementById('signupScreen');
-        const newsScreen = document.getElementById('newsScreen');
-        const createAccountLink = document.getElementById('createAccountLink');
-        const backToLogin = document.getElementById('backToLogin');
-        const loginBtn = document.getElementById('loginBtn');
-        const createAccountBtn = document.getElementById('createAccountBtn');
-        const logoutBtn = document.getElementById('logoutBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        // Iniciar com a tela de login
-        showLogin();
-        
-        // Mostrar tela de login
-        function showLogin() {
-            loginScreen.style.display = 'flex';
-            signupScreen.style.display = 'none';
-            newsScreen.style.display = 'none';
-            logoutBtn.style.display = 'none';
-            navMenu.style.display = 'none';
-            document.querySelector('.container').style.display = 'flex';
-            
-            // Limpar campos
-            document.getElementById('cpf').value = '';
-            document.getElementById('password').value = '';
-        }
-        
-        // Mostrar tela de notícias (após login)
-        function showNews() {
-            loginScreen.style.display = 'none';
-            signupScreen.style.display = 'none';
-            newsScreen.style.display = 'flex';
-            logoutBtn.style.display = 'block';
-            navMenu.style.display = 'block';
-            document.querySelector('.container').style.display = 'block';
-        }
-        
-        // Alternar entre telas de login/cadastro
-        createAccountLink.addEventListener('click', function() {
-            loginScreen.style.display = 'none';
-            signupScreen.style.display = 'flex';
-        });
-        
-        backToLogin.addEventListener('click', function() {
-            signupScreen.style.display = 'none';
-            loginScreen.style.display = 'flex';
-        });
-        
-        // Simular login
-        loginBtn.addEventListener('click', function() {
-            const cpf = document.getElementById('cpf').value;
-            const password = document.getElementById('password').value;
-            
-            if (cpf && password) {
-                // Login bem-sucedido - mostrar notícias
-                showNews();
-            } else {
-                alert('Por favor, preencha todos os campos!');
-            }
-        });
-        
-        // Simular criação de conta
-        createAccountBtn.addEventListener('click', function() {
-            const name = document.getElementById('name').value;
-            const newCpf = document.getElementById('newCpf').value;
-            const newPassword = document.getElementById('newPassword').value;
-            
-            if (name && newCpf && newPassword) {
-                alert('Conta criada com sucesso!');
-                // Voltar para o login após criar conta
-                showLogin();
-            } else {
-                alert('Por favor, preencha todos os campos!');
-            }
-        });
-        
-        // Permitir login com Enter
-        document.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                if (loginScreen.style.display !== 'none') {
-                    loginBtn.click();
-                } else if (signupScreen.style.display !== 'none') {
-                    createAccountBtn.click();
-                }
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
