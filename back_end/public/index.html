@@ -378,6 +378,8 @@
     </div>
 
     <script>
+        const API_BASE_URL = '/api';
+        
         // Elementos da tela
         const loginScreen = document.getElementById('loginScreen');
         const signupScreen = document.getElementById('signupScreen');
@@ -427,31 +429,68 @@
             loginScreen.style.display = 'flex';
         });
         
-        // Simular login
-        loginBtn.addEventListener('click', function() {
+        // Login via API
+        loginBtn.addEventListener('click', async function() {
             const cpf = document.getElementById('cpf').value;
             const password = document.getElementById('password').value;
             
-            if (cpf && password) {
-                // Login bem-sucedido - mostrar notícias
-                showNews();
-            } else {
+            if (!cpf || !password) {
                 alert('Por favor, preencha todos os campos!');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/auth/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ cpf, password })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    localStorage.setItem('token', data.token);
+                    showNews();
+                } else {
+                    alert('Credenciais inválidas!');
+                }
+            } catch (error) {
+                console.error('Erro ao fazer login:', error);
+                alert('Erro ao conectar com o servidor');
             }
         });
         
-        // Simular criação de conta
-        createAccountBtn.addEventListener('click', function() {
+        // Criação de conta via API
+        createAccountBtn.addEventListener('click', async function() {
             const name = document.getElementById('name').value;
             const newCpf = document.getElementById('newCpf').value;
             const newPassword = document.getElementById('newPassword').value;
             
-            if (name && newCpf && newPassword) {
-                alert('Conta criada com sucesso!');
-                // Voltar para o login após criar conta
-                showLogin();
-            } else {
+            if (!name || !newCpf || !newPassword) {
                 alert('Por favor, preencha todos os campos!');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}/auth/register`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, cpf: newCpf, password: newPassword })
+                });
+                
+                if (response.ok) {
+                    alert('Conta criada com sucesso!');
+                    showLogin();
+                } else {
+                    alert('Erro ao criar conta. Tente novamente!');
+                }
+            } catch (error) {
+                console.error('Erro ao criar conta:', error);
+                alert('Erro ao conectar com o servidor');
             }
         });
         
